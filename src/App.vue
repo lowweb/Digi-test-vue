@@ -16,7 +16,7 @@ import BHeader from '@/components/blocks/BHeader.vue'
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: $font-family, sans-serif;
 }
 
 *,
@@ -39,11 +39,11 @@ body {
 }
 
 .page__main {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  margin: 0 auto;
-  width: 100%;
-  height: 100%;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: stretch;
+  // margin: 0 auto;
+  // width: 100%;
+  // height: 100%;
 }
 </style>

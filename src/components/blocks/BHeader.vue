@@ -1,62 +1,67 @@
-<script setup></script>
+<script setup>
+import BMenu from './BMenu.vue'
+import UButton from '../ui/UButton.vue'
+import UInput from '../ui/UInput.vue'
+</script>
 <template>
   <header class="header">
     <div class="header__logo">
       <a href="#" class="logo__link">
-        <img src="" alt="Логотип сайта" />
+        <img src="@/assets/icn/icn-logo.svg" alt="Логотип сайта" />
         <p class="logo__title">Логотип</p>
       </a>
-      <button class="header__button button">Каталог</button>
-      <label class="input">
-        <!-- <span class="input__label">fewsfew</span> -->
-        <!-- <img src="images/icn-search.svg" alt="Логотип сайта" /> -->
-        <div class="input__body">
-          <input type="text" placeholder="Поиск по 100 000 товаров " class="input__field" />
-          <span class="input__righticon"></span>
-        </div>
-      </label>
+      <UButton>Купить</UButton>
     </div>
-    <nav class="header__menu menu">
-      <ul class="menu__list">
-        <li class="menu__item">
-          <a href="#" class="menu__link">Информация о компании</a>
-        </li>
-        <li class="menu__item">
-          <a href="#" class="menu__link">Контакты</a>
-        </li>
-        <li class="menu__item">
-          <a href="#" class="menu__link">Полезные ссылки</a>
-        </li>
-      </ul>
-    </nav>
+
+    <UInput placeholder="Поиск по 100 000 товаров"></UInput>
+    <BMenu class="header__menu" />
   </header>
 </template>
 
 <style lang="scss">
 .header {
   display: flex;
+  gap: 24px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 12px 0;
 
   &__logo {
     display: flex;
     align-items: center;
+    gap: 32px;
   }
 
-  &__button {
+  &__menu {
+    display: flex;
+    flex: 1 0 auto;
+  }
+
+  & .button {
     font-family: $second-family;
     font-weight: 500;
     font-size: 14px;
-    color: #000000;
-    border: 1px solid #73aff4;
-    border-radius: 8px;
-    padding: 15.25px 23px;
-    background-color: white;
+    color: #000;
+    padding: 14.5px 23px;
+    line-height: normal;
+    margin-right: 24px;
+  }
+}
 
-    &:hover {
-      background-color: #73aff4;
-    }
+.logo {
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #000000;
+  }
+
+  &__title {
+    font-family: $second-family;
+    font-weight: 400;
+    font-size: 16px;
   }
 }
 </style>
