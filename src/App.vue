@@ -1,0 +1,49 @@
+<script setup>
+import BHeader from '@/components/blocks/BHeader.vue'
+</script>
+
+<template>
+  <BHeader />
+
+  <main class="page__main">cdsfsdfdsf</main>
+</template>
+
+<style lang="scss">
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+.page__body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: $font-family;
+  font-size: 14px;
+  position: relative;
+  padding: 0 100px;
+}
+
+.page__main {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+</style>
