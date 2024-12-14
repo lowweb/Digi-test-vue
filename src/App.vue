@@ -1,11 +1,14 @@
 <script setup>
 import BHeader from '@/components/blocks/BHeader.vue'
+import BContent from '@/components/blocks/BContent.vue'
 </script>
 
 <template>
   <BHeader />
 
-  <main class="page__main">cdsfsdfdsf</main>
+  <main class="page__main">
+    <BContent></BContent>
+  </main>
 </template>
 
 <style lang="scss">

@@ -1,25 +1,3 @@
-<template>
-  <label class="input">
-    <!-- <span class="input__label"><slot name="inputLabel"></slot></span> -->
-    <div class="input__body">
-      <input
-        :type="type"
-        :placeholder="placeholder"
-        :disabled="disabled"
-        v-model="value"
-        class="input__field"
-      />
-      <IconSearch class="input__icon-search" />
-      <Transition name="slide-fade">
-        <div class="input__search-options" v-if="value">
-          <IconCloseButton class="input__close-button" />
-          <UButton class="input__search-button button--fill">Найти</UButton>
-        </div>
-      </Transition>
-    </div>
-  </label>
-</template>
-
 <script setup>
 import IconSearch from '../icons/IconSearch.vue'
 import IconCloseButton from '../icons/IconCloseButton.vue'
@@ -44,6 +22,28 @@ const props = defineProps({
   },
 })
 </script>
+
+<template>
+  <label class="input">
+    <!-- <span class="input__label"><slot name="inputLabel"></slot></span> -->
+    <div class="input__body">
+      <input
+        :type="type"
+        :placeholder="placeholder"
+        :disabled="disabled"
+        v-model="value"
+        class="input__field"
+      />
+      <IconSearch class="input__icon-search" />
+      <Transition name="slide-fade">
+        <div class="input__search-options" v-if="value">
+          <IconCloseButton class="input__close-button" />
+          <UButton class="input__search-button button--fill">Найти</UButton>
+        </div>
+      </Transition>
+    </div>
+  </label>
+</template>
 
 <style lang="scss">
 .input {
