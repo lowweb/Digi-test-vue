@@ -9,7 +9,7 @@ const buttonText = computed(() => {
   return props.inStock ? 'Купить' : 'Сообщить о поступлении'
 })
 const formatPrice = (price) => {
-  return price.replace(/\d(?=(\d{3})+$)/g, '$& ')
+  return price.toLocaleString('ru-RU')
 }
 const imgUrl = computed(() => getImageUrl('../assets/images/', props.image))
 const props = defineProps({
@@ -47,15 +47,22 @@ const props = defineProps({
 </script>
 
 <template>
-  <article class="card">
-    <IconPopular v-if="isPopular" class="card__popular" />
-    <UShield v-if="discount" class="card__discount">{{ discount }}</UShield>
-    <img :src="imgUrl" alt="image-caption" class="card__image" />
+  <article class="card" :class="{ 'card--nostock': inStock === false }">
+    <div class="card__body">
+      <IconPopular v-if="isPopular" class="card__popular" />
+      <UShield v-if="discount" class="card__discount">{{ discount }}</UShield>
+      <img
+        :src="imgUrl"
+        alt="image-caption"
+        class="card__image"
+        :class="{ 'card__image--noimage': image === '' }"
+      />
+    </div>
     <h2 class="card__title">
       <p class="card__title-sub">Бренд</p>
       <slot></slot>
     </h2>
-    <div class="card__price" v-if="inStock">
+    <div class="card__price" v-show="inStock">
       {{ formatPrice(price) }} ₽
       <span class="card__price--old">{{ formatPrice(oldPrice) }} ₽</span>
     </div>
@@ -68,27 +75,59 @@ const props = defineProps({
 <style lang="scss">
 .card {
   display: grid;
-  grid-template-rows: repeat(max-content, 4);
+  grid-template-rows: repeat(4, max-content);
   gap: 16px;
   max-width: 333px;
   position: relative;
+
+  &__body {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+  }
+  &--nostock {
+    grid-template-rows: max-content max-content 1fr;
+
+    & .card__button {
+      width: 100%;
+    }
+  }
 
   &__image {
     width: 100%;
     max-height: 200px;
     object-fit: cover;
+    height: 200px;
+    background-color: #f8f8fa;
+    transition: 1s;
+
+    &:hover {
+      transform: scale(1.2);
+      z-index: 1;
+    }
+
+    &--noimage::before {
+      content: 'no image';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &__popular {
     position: absolute;
     top: 12px;
     left: 12px;
+    z-index: 3;
   }
 
   &__discount {
     position: absolute;
     left: 12px;
     top: 162px;
+    z-index: 3;
   }
 
   &__title-sub {
@@ -125,6 +164,14 @@ const props = defineProps({
       line-height: 117%;
       text-decoration: line-through;
       color: $color-font-second;
+    }
+  }
+
+  &__footer {
+    align-self: flex-end;
+
+    & .button--grey {
+      width: 100%;
     }
   }
 }

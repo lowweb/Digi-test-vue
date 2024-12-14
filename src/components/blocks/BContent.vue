@@ -1,20 +1,42 @@
 <script setup>
 import UCard from '../ui/UCard.vue'
+import data from '../../api/data.js'
 </script>
 <template>
-  <article class="content">
+  <section class="content">
     <UCard
-      image="imgCard.svg"
-      is-popular="true"
-      discount="25%"
-      price="5990"
-      old-price="5990"
-      in-stock="true"
+      v-for="card in data"
+      :key="card.id"
+      :image="card.image"
+      :is-popular="card.ispopular"
+      :discount="card.discount"
+      :price="card.price"
+      :old-price="card.oldprice"
+      :in-stock="card.instock"
     >
-      Полное название товара в несколько строк для вида с обрывом в конце но мы продолжим текст для
-      визуализации трех точек
+      {{ card.caption }}
     </UCard>
-  </article>
+  </section>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+.content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  flex-wrap: wrap;
+
+  @media screen and (max-width: 1351px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (max-width: 1134px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 601px) {
+    grid-template-columns: repeat(1, 1fr);
+    margin: 0 auto;
+  }
+}
+</style>

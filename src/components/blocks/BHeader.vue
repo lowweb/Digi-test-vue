@@ -2,6 +2,7 @@
 import BMenu from './BMenu.vue'
 import UButton from '../ui/UButton.vue'
 import UInput from '../ui/UInput.vue'
+import UHamMenu from '../ui/UHamMenu.vue'
 </script>
 <template>
   <header class="header">
@@ -13,8 +14,9 @@ import UInput from '../ui/UInput.vue'
       <UButton>Купить</UButton>
     </div>
 
-    <UInput placeholder="Поиск по 100 000 товаров"></UInput>
+    <UInput placeholder="Поиск по 100 000 товаров" type="text" :search-mod="true"></UInput>
     <BMenu class="header__menu" />
+    <UHamMenu class="header__ham-menu" />
   </header>
 </template>
 
@@ -32,6 +34,10 @@ import UInput from '../ui/UInput.vue'
     align-items: center;
     gap: 32px;
 
+    @media screen and (max-width: 925px) {
+      display: none;
+    }
+
     & .button {
       font-family: $second-family;
       font-weight: 500;
@@ -46,6 +52,20 @@ import UInput from '../ui/UInput.vue'
   &__menu {
     display: flex;
     flex: 1 0 auto;
+
+    @media screen and (max-width: 1200px) {
+      display: none;
+    }
+  }
+
+  &__ham-menu {
+    display: none;
+    @media screen and (max-width: 1200px) {
+      display: block;
+    }
+    @media screen and (max-width: 925px) {
+      display: none;
+    }
   }
 }
 

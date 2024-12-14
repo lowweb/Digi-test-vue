@@ -20,12 +20,21 @@ const props = defineProps({
     required: false,
     default: 'text',
   },
+  slim: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+  searchMod: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
 })
 </script>
 
 <template>
   <label class="input">
-    <!-- <span class="input__label"><slot name="inputLabel"></slot></span> -->
     <div class="input__body">
       <input
         :type="type"
@@ -33,10 +42,11 @@ const props = defineProps({
         :disabled="disabled"
         v-model="value"
         class="input__field"
+        :class="{ 'input__field--slim': slim }"
       />
-      <IconSearch class="input__icon-search" />
+      <IconSearch class="input__icon-search" :class="{ 'input__icon-search--slim': slim }" />
       <Transition name="slide-fade">
-        <div class="input__search-options" v-if="value">
+        <div class="input__search-options" v-if="value && searchMod">
           <IconCloseButton class="input__close-button" />
           <UButton class="input__search-button button--fill">Найти</UButton>
         </div>
@@ -60,6 +70,12 @@ const props = defineProps({
     position: absolute;
     left: 16px;
     transition: fill 1s;
+
+    &--slim {
+      width: 16px;
+      height: 16px;
+      left: 12px;
+    }
   }
   &__icon {
     display: flex;
@@ -85,8 +101,16 @@ const props = defineProps({
     color: #5a5a5a;
     border: 1px solid $color-border;
     border-radius: 10px;
-    padding: 11px 16px 11px 48px;
+    padding: 11px 15px 11px 47px;
     width: 100%;
+
+    &--slim {
+      font-family: $font-family;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 114%;
+      padding: 9px 11px 9px 35px;
+    }
 
     &:focus {
       border: 1px solid $color-brand-two;

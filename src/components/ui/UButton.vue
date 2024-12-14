@@ -30,5 +30,15 @@
     color: $color-white;
     background-color: $color-brand-two;
   }
+
+  &--grey {
+    border: 1px solid $color-font-second;
+    color: $color-font-second;
+
+    &:hover {
+      background-color: $color-font-second;
+      color: $color-white;
+    }
+  }
 }
 </style>
