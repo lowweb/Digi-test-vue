@@ -31,21 +31,21 @@ import UInput from '../ui/UInput.vue'
     display: flex;
     align-items: center;
     gap: 32px;
+
+    & .button {
+      font-family: $second-family;
+      font-weight: 500;
+      font-size: 14px;
+      color: #000;
+      padding: 14.5px 23px;
+      line-height: normal;
+      margin-right: 24px;
+    }
   }
 
   &__menu {
     display: flex;
     flex: 1 0 auto;
-  }
-
-  & .button {
-    font-family: $second-family;
-    font-weight: 500;
-    font-size: 14px;
-    color: #000;
-    padding: 14.5px 23px;
-    line-height: normal;
-    margin-right: 24px;
   }
 }
 

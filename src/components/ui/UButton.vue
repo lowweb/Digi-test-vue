@@ -16,9 +16,19 @@
   color: $color-brand;
   background-color: $color-white;
 
+  &--fill {
+    color: $color-white;
+    background-color: $color-brand;
+  }
+
   &:hover {
     background-color: $color-brand;
     color: $color-white;
+  }
+
+  &--fill:hover {
+    color: $color-white;
+    background-color: $color-brand-two;
   }
 }
 </style>
