@@ -6,10 +6,9 @@ import BFilters from './components/blocks/BFilters.vue'
 
 <template>
   <BHeader />
-
   <main class="page__main">
     <BFilters />
-    <BContent></BContent>
+    <BContent />
   </main>
 </template>
 

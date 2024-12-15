@@ -36,7 +36,6 @@ const props = defineProps({
 
   &__input {
     height: 0;
-    // margin: 0 !important;
     opacity: 0;
     position: absolute;
     top: 50%;

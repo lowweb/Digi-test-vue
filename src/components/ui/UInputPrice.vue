@@ -1,7 +1,4 @@
 <script setup>
-import IconSearch from '../icons/IconSearch.vue'
-import IconCloseButton from '../icons/IconCloseButton.vue'
-import UButton from '../ui/UButton.vue'
 import { ref } from 'vue'
 const value = ref('')
 const props = defineProps({

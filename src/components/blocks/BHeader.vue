@@ -13,7 +13,6 @@ import UHamMenu from '../ui/UHamMenu.vue'
       </a>
       <UButton>Купить</UButton>
     </div>
-
     <UInput placeholder="Поиск по 100 000 товаров" type="text" :search-mod="true"></UInput>
     <BMenu class="header__menu" />
     <UHamMenu class="header__ham-menu" />
