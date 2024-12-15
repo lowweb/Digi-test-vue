@@ -36,13 +36,16 @@ console.log(attributesAndValues);
 ```
 
 ## Верстка
-
+Клонировать проект в папку, сменить директорию
+```sh
+git clone https://github.com/lowweb/Digi-test-vue.git
+cd Digi-test-vue
+```
+Установить зависимости
 ```sh
 npm install
 ```
-
-### Compile and Hot-Reload for Development
-
+Запустить сборку в режиме dev
 ```sh
 npm run dev
 ```
