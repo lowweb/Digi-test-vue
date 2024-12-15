@@ -1,6 +1,8 @@
 # Digi-test-vue
 
-## 1. Задание. Написать функцию для получения списка всех артикулов товаров в консоли браузера на странице https://groupprice.ru/categories/jenskaya-odejda?referer_from=main_catalog
+## 1. Задание.
+
+### Написать функцию для получения списка всех артикулов товаров в консоли браузера на странице https://groupprice.ru/categories/jenskaya-odejda?referer_from=main_catalog
 
 ```sh
 function getAllProductIds() {
@@ -12,7 +14,9 @@ function getAllProductIds() {
   console.log(productIds);
 ```
 
-## 2. Задание. Написать функцию для получения всех характеристики товара в консоли браузера в виде объекта в формате attributeName: value на странице https://nir-vanna.ru/product/smesitel-bravat-art-f175109c-dlya-rakoviny/
+## 2. Задание.
+
+### Написать функцию для получения всех характеристики товара в консоли браузера в виде объекта в формате attributeName: value на странице https://nir-vanna.ru/product/smesitel-bravat-art-f175109c-dlya-rakoviny/
 
 ```sh
 function getAttributesAndValues() {
@@ -43,16 +47,4 @@ npm install
 
 ```sh
 npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
