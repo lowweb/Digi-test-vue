@@ -47,7 +47,7 @@ const props = defineProps({
       <IconSearch class="input__icon-search" :class="{ 'input__icon-search--slim': slim }" />
       <Transition name="slide-fade">
         <div class="input__search-options" v-if="value && searchMod">
-          <IconCloseButton class="input__close-button" />
+          <IconCloseButton class="input__close-button" @click="value = ''" />
           <UButton class="input__search-button button--fill">Найти</UButton>
         </div>
       </Transition>
